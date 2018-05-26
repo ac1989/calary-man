@@ -7,14 +7,19 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottm: `${theme.spacing.unit}px`
+    marginBottom: `${theme.spacing.unit}px`
   }
 });
 
-const SignUpInForm = ({ classes }) => {
+const SignUpInForm = ({ classes, autoFocus }) => {
   return (
     <form noValidate autoComplete="off" className={classes.root}>
-      <TextField id="username" label="Username" margin="normal" autoFocus />
+      <TextField
+        id="username"
+        label="Username"
+        margin="normal"
+        autoFocus={autoFocus}
+      />
       <TextField
         id="password"
         label="Password"

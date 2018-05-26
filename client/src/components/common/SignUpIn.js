@@ -1,38 +1,15 @@
 import React, { Component } from 'react';
+import { Transition, animated } from 'react-spring';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import { Divider } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SignUpInForm from './SignUpInForm';
 import AuthButton from './AuthButton';
 import google from '../../images/logos/google-auth-36h.png';
-
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    [theme.breakpoints.up('xs')]: {
-      width: '100%',
-      height: '400px'
-    },
-    [theme.breakpoints.up('sm')]: {
-      width: '320px',
-      marginTop: '10vh'
-    }
-  },
-  authServices: {
-    display: 'flex',
-    flex: '1',
-    flexDirection: 'column',
-    padding: theme.spacing.unit * 2
-  },
-  tab: {
-    [theme.breakpoints.up('xs')]: {
-      width: '50%'
-    }
-  }
-});
+import styles from './SignUpIn.style';
 
 class SignUpIn extends Component {
   state = {
@@ -44,15 +21,37 @@ class SignUpIn extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, autoFocus } = this.props;
     const { value } = this.state;
     return (
       <Paper className={classes.root} elevation={0}>
         <div className={classes.authServices}>
-          <Typography align="center" variant="title" gutterBottom>
-            {value === 'signin' ? 'Sign In' : 'Sign Up'}
-          </Typography>
-          <SignUpInForm />
+          <div className={classes.transitionWrap}>
+            <Transition
+              from={{ opacity: 0, transform: 'translateX(-100px)' }}
+              enter={{ opacity: 1, transform: 'translateX(0px)' }}
+              leave={{ opacity: 0, transform: 'translateX(100px)' }}
+              native
+            >
+              {// prettier-ignore
+              value === 'signin' ?
+              (style => (
+                <animated.div style={{ ...style, position: 'absolute', top: '0', left: 0, right: 0, margin: 'auto' }}>
+                  <Typography align="center" variant="title" gutterBottom>
+                    SignUp
+                  </Typography>
+                </animated.div>
+              )) : (style => (
+                <animated.div style={{ ...style, position: 'absolute', top: '0', left: 0, right: 0, margin: 'auto' }}>
+                  <Typography align="center" variant="title" gutterBottom>
+                    SignIn
+                  </Typography>
+                </animated.div>
+              ))}
+            </Transition>
+          </div>
+          <SignUpInForm autoFocus={autoFocus} />
+          <Divider />
           <AuthButton
             authService="Github"
             fontIcon="fab fa-github"
