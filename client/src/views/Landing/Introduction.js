@@ -8,7 +8,7 @@ const styles = theme => ({
     maxWidth: '960px',
     minHeight: '100vh',
     margin: 'auto',
-    padding: `0 ${theme.spacing.unit}px`,
+    padding: `0 ${theme.spacing.unit * 2}px`,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center'

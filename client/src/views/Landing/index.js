@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Brand from './Brand';
 import Introduction from './Introduction';
 import LandingSignUpIn from './LandingSignUpIn';
-import SignUpIn from '../../components/common/SignUpIn';
 
 const styles = theme => ({
   root: {
@@ -15,7 +14,12 @@ const styles = theme => ({
     position: 'fixed',
     right: 0,
     zIndex: '100',
-    margin: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`
+    [theme.breakpoints.up('xs')]: {
+      margin: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 1}px`
+    },
+    [theme.breakpoints.up('sm')]: {
+      margin: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`
+    }
   }
 });
 

@@ -11,7 +11,8 @@ const AuthButton = ({
   imgIcon,
   color,
   backgroundColor,
-  variant
+  variant,
+  onClick
 }) => {
   return (
     <Button
@@ -19,6 +20,9 @@ const AuthButton = ({
       size="large"
       className={classes.root}
       style={{ color, backgroundColor }}
+      onClick={() => {
+        onClick();
+      }}
     >
       {fontIcon && (
         <i className={classNames(classes.icon, classes.fontIcon, fontIcon)} />

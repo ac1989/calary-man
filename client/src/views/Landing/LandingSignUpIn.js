@@ -16,7 +16,7 @@ const styles = theme => ({
 const LandingSignUpIn = ({ classes }) => {
   return (
     <div className={classes.root}>
-      <SignUpIn />
+      <SignUpIn loading={true} />
     </div>
   );
 };

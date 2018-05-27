@@ -1,10 +1,11 @@
 export default theme => ({
   root: {
+    position: 'relative',
     display: 'flex',
     flexDirection: 'column',
     [theme.breakpoints.up('xs')]: {
       width: '100%',
-      height: '408px'
+      height: '410px'
     },
     [theme.breakpoints.up('sm')]: {
       width: '320px'
@@ -16,10 +17,6 @@ export default theme => ({
     flex: '1',
     flexDirection: 'column',
     padding: theme.spacing.unit * 2
-  },
-  transitionWrap: {
-    position: 'relative',
-    height: '2rem'
   },
   tab: {
     [theme.breakpoints.up('xs')]: {

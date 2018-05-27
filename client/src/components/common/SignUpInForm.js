@@ -11,7 +11,7 @@ const styles = theme => ({
   }
 });
 
-const SignUpInForm = ({ classes, autoFocus }) => {
+const SignUpInForm = ({ classes, autoFocus, onClick }) => {
   return (
     <form noValidate autoComplete="off" className={classes.root}>
       <TextField
@@ -26,7 +26,11 @@ const SignUpInForm = ({ classes, autoFocus }) => {
         margin="normal"
         type="password"
       />
-      <AuthButton fontIcon="fas fa-sign-in-alt" authService="Calary Man" />
+      <AuthButton
+        fontIcon="fas fa-sign-in-alt"
+        authService="Calary Man"
+        onClick={onClick}
+      />
     </form>
   );
 };
