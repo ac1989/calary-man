@@ -6,8 +6,8 @@ import orange from '@material-ui/core/colors/orange';
 const theme = createMuiTheme({
   palette: {
     type: 'dark',
-    primary: cyan,
-    secondary: grey,
+    primary: grey,
+    secondary: cyan,
     error: orange
   },
   overrides: {
